@@ -9,7 +9,7 @@
     chatting, please enter your desired username.</p>
   <p class="error" style="display:none"></p>
   <div class="form">
-    <form action='login'>
+    <form action='login_submit'>
       <fieldset>
         <label for="username">User name:</label>
         <input maxlength="40" name="login" class="username" type="text"/>

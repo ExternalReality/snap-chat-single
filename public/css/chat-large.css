@@ -242,6 +242,11 @@ input.disabled {
     vertical-align: middle;
 }
 
+.message-window{
+    height: 700px;
+    background: white;
+}
+
 .chatroom .chatroom-top div.top-header {
     position: absolute;
     color: white;
@@ -250,6 +255,10 @@ input.disabled {
     width: auto;
     top: 0; right: 2em;
     vertical-align: middle;
+}
+
+.buffer {
+    length: 700px;
 }
 
 .chatroom .chatroom-top div.top-header span {

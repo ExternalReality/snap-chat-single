@@ -28,9 +28,8 @@
   <body>
 
     <ifLoggedIn>
-      <div id="container" class="container">
-        <div id="menu"></div>
-        <div id="content"></div>
+      <div id="container">
+        <div id="content" class="container"></div>
       </div>
     </ifLoggedIn>
 

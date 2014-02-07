@@ -1,34 +1,24 @@
-<div class="chatwindow chatroom">
+<div class="sixteen columns chatwindow chatroom">
 
-  <div class="chatroom-top">
-    <form>
-      <button type="button" class="logoutButton cupid-green">⇦ Leave chat room</button>
-    </form>
+  <div class="row">
+    <button type="button" class="cupid-green">⇦ Leave chat room</button>
 
-    <div class="top-header">
+    <div class="two columns offset-by-ten">
       <img src="img/logo-small.png"/>
-      <span class="top-message"></span>
     </div>
+
+    <span class="top-message"></span>
   </div>
 
-  <div class="chatroom-buffer">
-    <div class="buffer">
+  <div class="row">
+    <div class="message-window">
       <div class="chattext"></div>
     </div>
   </div>
 
-  <div class="chatroom-input">
-    <form>
-      <table>
-        <tr>
-          <td class="inputcell" width="*">
-            <input type="text" maxlength="1024" placeholder="Enter your message here" class="chatinput"/>
-          </td>
-          <td class="buttoncell" style="width: 5em">
-            <button type="button" class="write_message cupid-green">Send</button>
-          </td>
-        </tr>
-      </table>
-    </form>
+  <div class="row">
+      <input type="text" maxlength="1024" placeholder="Enter your message here" class="chatinput"/>
+      <button type="button" class="write_message cupid-green">Send</button>
   </div>
+
 </div>

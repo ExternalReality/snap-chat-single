@@ -25,14 +25,10 @@ import           Snap.Util.FileServe
 import           Application
 
 ------------------------------------------------------------------------------
-chatRoomURL :: ByteString
-chatRoomURL = "/#chatRoom"
-
-------------------------------------------------------------------------------
 handleLogin :: Maybe T.Text -> Handler App (AuthManager App) ()
 handleLogin authError = do 
-  liftIO $ print authError
-  heistLocal (I.bindSplices errs) $ render "login"
+  liftIO $ print $ authError
+  heistLocal (I.bindSplices errs) $ render "index"
   where
     errs = maybe noSplices splice authError
     splice err = "loginError" ## I.textSplice err
@@ -45,15 +41,17 @@ handleLoginSubmit = do
       Left af  -> handleLogin $ Just . T.pack . show $ af
       Right _  -> loginUser "login" "password" Nothing
                     (\_ -> handleLogin $ Just err)
-                    (redirect chatRoomURL)
+                    (redirect "/#chatroom")
   where
     err = "Unknown user or password"
+    
 
 ------------------------------------------------------------------------------
 -- | The application's routes.
 routes :: [(ByteString, Handler App App ())]
-routes = [ (""       , serveDirectoryWith fancyDirectoryConfig "public")
-         , ("/login"  , with auth handleLoginSubmit)          
+routes = [ (""             , serveDirectoryWith fancyDirectoryConfig "public")
+         , ("/"       , with auth (handleLogin Nothing))
+         , ("login_submit" , with auth handleLoginSubmit)          
          ]
 
 ------------------------------------------------------------------------------
